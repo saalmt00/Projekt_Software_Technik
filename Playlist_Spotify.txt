@@ -1,0 +1,29 @@
+﻿"Run This Town"         "JAY-Z,Rihanna,Kanye West"                                  "hip hop"           4.28
+"Kampfgeist 4"          "Kontra K"                                                  "german hip hop"    2.57
+"You Don't Know"        "Eminem,50 Cent,Ca$his,Lloyd Banks"                         "hip hop"           4.18
+"In Da Club"            "50 Cent"                                                   "hip hop"           3.13
+"Runnin"                "Mike WiLL Made-It,A$AP Rocky,A$AP Ferg,Nicki Minaj"        "hip hop"           2.12
+"Gangsta's Paradise"    "Coolio,L.V."                                               "funk"              4.01
+"Get Back"              "Pop Smoke"                                                 "brooklyn drill"    1.48
+"Killer"                "Eminem,Jack Harlow,Cordae"                                 "hip hop"           3.57
+"Invincible"            "Pop Smoke"                                                 "brooklyn drill"    2.08
+"Like Woo"              "Kontra K"                                                  "german hip hop"    2.27
+"Fighter"               "The Score"                                                 "rock"              2.37
+"Kampfgeist V"          "Kontra K"                                                  "german hip hop"    3.08
+"Rabbit Run"            "Eminem"                                                    "hip hop"           3.10
+"Candy Shop"            "50 Cent,Olivia"                                            "hip hop"           3.29
+"Look At Me!"           "XXXTENTACION"                                              "emo rap"           2.06
+"Watch The World Burn"  "Falling In Reverse"                                        "metal"             3.24
+"North Korea"           "Josh A,iamjakehill"                                        "sad rap"           2.34
+"Rust - Bonus"          "Josh A,iamjakehill"                                        "sad rap"           3.09
+"Till I Collapse"       "Eminem,Nate Dogg"                                          "hip hop"           4.58
+"Berzerk"               "Eminem"                                                    "hip hop"           3.59
+"Can't Be Touched"      "Roy Jones Jr.,Mr Magic,Trouble"                            "rock"              3.34
+"BILLY"                 "6ix9ine"                                                   "emo rap"           1.53
+"Low"                   "Flo Rida,T-Pain"                                           "pop"               3.51
+"Never Enough"          "Eminem,50 Cent,Nate Dogg"                                  "hip hop"           2.40
+"Fast Lane"             "Bad Meets Evil"                                            "hip hop"           4.10
+"Where The Hood At"     "DMX"                                                       "hip hop"           4.46
+"X Gon' Give It To Ya"  "DMX"                                                       "hip hop"           3.40
+"Champions"             "GRiNGO,Puls,Kontra K"                                      "german hip hop"    3.23
+"Caterpillar"           "Royce Da 5'9',Eminem,King Green"                           "hip hop"           4.43
