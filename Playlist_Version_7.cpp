@@ -435,9 +435,9 @@ class Playlist{
 
     Playlist.Name_Playlist("Playlist");
 
-    Playlist.Einlesefunktion("Playlist_Spotify.txt");
+    //Playlist.Einlesefunktion("Playlist_Spotify.txt");
         
-    Playlist.Playlist_auflisten();
+    //Playlist.Playlist_auflisten();
 
     //Playlist.Play_Song("Fighter");
 
