@@ -12,7 +12,8 @@ TEST_CASE("Bennen der Playlist"){
 TEST_CASE("Einlesen der Lieder: Test Anzahl der Zeilen"){
 
     Playlist Test;
-    REQUIRE(Test.Einlesefunktion("Test.txt")==3);
+    REQUIRE(Test.Song_Hinzufügen("Test.txt")==3);
+    REQUIRE(Test.Song_Hinzufügen("Error")==999999);
 
 }
 
@@ -20,11 +21,11 @@ TEST_CASE("Ausgabe der Lieder"){
 
     Playlist Test;
 
-    Test.Einlesefunktion("Test.txt");
+    Test.Song_Hinzufügen("Test.txt");
 
-    REQUIRE(Test.Playlist_auflisten(0)=="Run This Town         JAY-Z,Rihanna,Kanye West                                  hip hop           4.28");
-    REQUIRE(Test.Playlist_auflisten(1)=="Kampfgeist 4          Kontra K                                                  german hip hop    2.57");
-    REQUIRE(Test.Playlist_auflisten(2)=="You Don't Know        Eminem,50 Cent,Ca$his,Lloyd Banks                         hip hop           4.18");
+    REQUIRE(Test.Playlist_auflisten(0)=="\"Run This Town\"         \"JAY-Z,Rihanna,Kanye West\"                                  \"hip hop\"           4.28");
+    REQUIRE(Test.Playlist_auflisten(1)=="\"Kampfgeist 4\"          \"Kontra K\"                                                  \"german hip hop\"    2.57");
+    REQUIRE(Test.Playlist_auflisten(2)=="\"You Don't Know\"        \"Eminem,50 Cent,Ca$his,Lloyd Banks\"                         \"hip hop\"           4.18");
 
 }
 
@@ -33,7 +34,7 @@ TEST_CASE("Abspielen eines Songs: Test herausfiltern von Songline, Titel, Artist
 
     Playlist Test;
     
-    Test.Einlesefunktion("Test.txt");
+    Test.Song_Hinzufügen("Test.txt");
     
     REQUIRE(Test.Play_Song_Songline("Run This Town")==0);
     REQUIRE(Test.Play_Song_Titel("Run This Town")=="Run This Town");
@@ -48,9 +49,10 @@ TEST_CASE("Song Löschen: Test Anzahl der Zeilen"){
 
     Playlist Test;
 
-    Test.Einlesefunktion("Test.txt");
+    Test.Song_Hinzufügen("Test.txt");
 
     REQUIRE(Test.Remove_Song("Run This Town")==2);
+    REQUIRE(Test.Remove_Song("Error")== 999999);
 
 }
 
@@ -58,7 +60,7 @@ TEST_CASE("Einzelnen Song Hinzufügen: Test Anzahl der Zeilen"){
 
     Playlist Test;
 
-    Test.Einlesefunktion("Test.txt");
+    Test.Song_Hinzufügen("Test.txt");
 
     REQUIRE(Test.Song_Hinzufügen("HOV.txt")==4);
 }
@@ -68,7 +70,7 @@ TEST_CASE("Sortieren der Playlist"){
 
     Playlist Test;
 
-    Test.Einlesefunktion("Test.txt");
+    Test.Song_Hinzufügen("Test.txt");
 
     REQUIRE(Test.Playlist_sortieren(0, "Titel")=="Kampfgeist 4          Kontra K                                                  german hip hop    2.57");
     REQUIRE(Test.Playlist_sortieren(1, "Titel")=="Run This Town         JAY-Z,Rihanna,Kanye West                                  hip hop           4.28");
@@ -91,9 +93,10 @@ TEST_CASE("Suchwort in der Playlist Suchen: Test Anzahl der Zeilen"){
 
     Playlist Test;
 
-    Test.Einlesefunktion("Test.txt");
+    Test.Song_Hinzufügen("Test.txt");
 
     REQUIRE(Test.Suche("Eminem")==1);
+    REQUIRE(Test.Suche("Error")== 999999);
 
 }
 
@@ -101,7 +104,7 @@ TEST_CASE("Anzeige des nächsten Lieds"){
 
     Playlist Test;
 
-    Test.Einlesefunktion("Test.txt");
+    Test.Song_Hinzufügen("Test.txt");
 
     REQUIRE(Test.Next_Song(0)=="Kampfgeist 4");
 }
