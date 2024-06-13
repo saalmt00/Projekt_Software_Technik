@@ -23,6 +23,7 @@ class Playlist{
     void Playlist_auflisten()
     {
         printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        system("clear");
         std::cout << Name << std::endl;
         printf("\n");
         printf("             Track Name              Artist Name                                                 Genres              Time\n\n");
@@ -68,12 +69,14 @@ class Playlist{
             }
 
             input.close();
-
-            Playlist_auflisten();
         }
         else{
-            printf("Fehler, Song konnte nicht Hinzugefügt werden. \n");
+            printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            system("clear");
+            std::cout << "Es konnte leider kein Song mit dem Namen '" << Song << "' hinzugefügt werden" << std::endl;
+            system("sleep 10");
         }
+        Playlist_auflisten();
     }
 
 
@@ -234,6 +237,7 @@ class Playlist{
 
     void Remove_Song(std::string Songname)
     {
+        int o = 0;
         for(int i =0; i<point_Count; i++)
         {
             size_t pos = point_Playlist[i].find(Songname);
@@ -253,9 +257,16 @@ class Playlist{
                         point_Count = point_Count-1;
                     }
                 }
+                o++;
             }                        
         }
-        
+        if(o == 0){
+            printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            system("clear");
+            std::cout << "Es konnte leider kein Song mit dem Namen '" << Songname << "' gefunden und entfernt werden" << std::endl;
+            system("sleep 10");
+            
+        }       
         Playlist_auflisten();
     } 
   
@@ -510,7 +521,74 @@ class Playlist{
         std::cout << "Next Song: " << Titel << ", from the Artist: " << Artist << std::endl;
     }
 
+    void Start_Playlist_Shuffel(int count_Songs){
+        std::string Titel;
+        std::string Artist;
+        std::string Genre;
+        double Time;
+        std::string Trenner;
 
+        for(int i = 0; i<count_Songs; i++)
+        {
+            int randm = (rand()%point_Count);
+            std::stringstream stream_line(point_Playlist[randm]);
+
+            for(int o = 0; o<6; o++)
+            {
+                std::getline(stream_line, Trenner, '"');
+
+                if(o==1)
+                {
+                    Titel = Trenner;
+                }
+
+                if(o==3)
+                {
+                    Artist = Trenner;
+                }
+                        
+                if(o==5)
+                {
+                    Genre = Trenner;
+                }                    
+            }
+                
+            stream_line >> Time;
+            int time_min = static_cast<int>(Time);
+            double time_just_sec = Time-time_min;
+            time_just_sec = time_just_sec*100;
+
+            while(true)
+            {                   
+                time_just_sec = time_just_sec/100-0.01;
+                if(time_just_sec<0)
+                {
+                    time_min = time_min-1;
+                    time_just_sec = 0.59;
+
+                } 
+                if(time_min<0)
+                {
+                    break;
+                }
+
+                time_just_sec = time_just_sec*100;
+                std::cout << "Now is playing: " << Titel << ", from the Artist: " << Artist;
+                    
+                if(time_just_sec<10)
+                {
+                    printf("    %d.0%0.f/%0.2f\n",time_min,time_just_sec,Time);
+                }
+                else
+                {
+                    printf("    %d.%0.f/%0.2f\n",time_min,time_just_sec,Time);
+                }
+
+                //system("sleep 1");
+                system("clear");                    
+            }
+        }
+    }
 
 };
     int main()
@@ -519,16 +597,16 @@ class Playlist{
     Playlist Playlist;
 
     //Playlist benennen
-    //Playlist.Name_Playlist("Günther");
+    Playlist.Name_Playlist("Günther");
 
     //Textdatei mit Liedern hinzufügen
-    //Playlist.Song_Hinzufügen("Playlist_Spotify.txt");
+    Playlist.Song_Hinzufügen("Playlist_Spotify.txt");
 
     //Textdatei mit einzelnem Lied hinzufügen
-    //Playlist.Song_Hinzufügen("HOV.txt");
+    Playlist.Song_Hinzufügen("HOV.txt");
 
     //Songtitel aus der Playlist entfernen
-    //Playlist.Remove_Song("HOV");
+    Playlist.Remove_Song("HOV");
 
     //Playlist sortieren nach: Titel, Artist, Genre oder Time
     //Playlist.Playlist_sortieren("Time");
@@ -539,8 +617,11 @@ class Playlist{
     //Ausgewähltes Lied aus der Playlist abspielen
     //Playlist.Play_Song("Killer");
 
-    //Playlist Starten
+    //Playlist starten
     //Playlist.Start_Playlist();
+
+    //Playlist geshuffelt starten
+    //Playlist.Start_Playlist_Shuffel(50);
 
     return 0;
 }   
