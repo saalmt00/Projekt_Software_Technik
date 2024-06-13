@@ -25,20 +25,28 @@ class Playlist{
         return Name;
     }
 
-    int Einlesefunktion(std::string Lieder)
+    int Song_Hinzufügen(std::string Song)
     {
-        std::ifstream input(Lieder);
+        int Error = 999999;
+
+        std::ifstream input(Song);    
         int i = point_Count;
+ 
+        if(input.is_open()){  
 
-        while(std::getline(input, point_Playlist[i]))
-        {
-            i++;
-            point_Count = i;
+            while(std::getline(input, point_Playlist[i])){
+
+                i++;
+                point_Count = i;
+            }
+
+            input.close();
+            return point_Count;
         }
-
-        input.close();
-
-        return point_Count;
+        else{
+            return Error;
+        }
+        
     }
 
     std::string Playlist_auflisten(int a)
@@ -199,7 +207,8 @@ class Playlist{
 
 
     int Remove_Song(std::string Songname){
-
+        int o=0;
+        int Error = 999999;
         for(int i =0; i<point_Count; i++)
         {
 
@@ -220,25 +229,15 @@ class Playlist{
                         point_Count = point_Count-1;
                     }
                 }
+                o++;
             }       
         }
-
-        return point_Count;
-    }
-
-
-    int Song_Hinzufügen(std::string Song)
-    {
-
-        std::ifstream input(Song);
-        int i = point_Count;
-
-        std::getline(input, point_Playlist[i]);
-        input.close();
-
-        point_Count++;
-
-        return point_Count;
+        if(o==0){
+            return Error;
+        }
+        else{
+            return point_Count;
+        }
     }
 
     std::string Playlist_sortieren(int x, std::string Sortieren){
@@ -423,6 +422,7 @@ class Playlist{
 
         std::string Temp_Playlist[N];
         int o=0;
+        int Error = 999999;
 
         for(int i=0; i<point_Count; i++)
         {
@@ -434,8 +434,12 @@ class Playlist{
                 o++;
             }
         }
-
-        return o;
+        if(o == 0){
+            return Error;
+        }
+        else{
+            return o;
+        }
     }
 
     
