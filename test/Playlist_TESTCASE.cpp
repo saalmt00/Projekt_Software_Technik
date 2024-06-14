@@ -72,21 +72,21 @@ TEST_CASE("Sortieren der Playlist"){
 
     Test.Song_Hinzufügen("Test.txt");
 
-    REQUIRE(Test.Playlist_sortieren(0, "Titel")=="Kampfgeist 4          Kontra K                                                  german hip hop    2.57");
-    REQUIRE(Test.Playlist_sortieren(1, "Titel")=="Run This Town         JAY-Z,Rihanna,Kanye West                                  hip hop           4.28");
-    REQUIRE(Test.Playlist_sortieren(2, "Titel")=="You Don't Know        Eminem,50 Cent,Ca$his,Lloyd Banks                         hip hop           4.18");
+    REQUIRE(Test.Playlist_sortieren(0, "Titel")=="\"Kampfgeist 4\"          \"Kontra K\"                                                  \"german hip hop\"    2.57");
+    REQUIRE(Test.Playlist_sortieren(1, "Titel")=="\"Run This Town\"         \"JAY-Z,Rihanna,Kanye West\"                                  \"hip hop\"           4.28");
+    REQUIRE(Test.Playlist_sortieren(2, "Titel")=="\"You Don't Know\"        \"Eminem,50 Cent,Ca$his,Lloyd Banks\"                         \"hip hop\"           4.18");
 
-    REQUIRE(Test.Playlist_sortieren(0, "Artist")=="You Don't Know        Eminem,50 Cent,Ca$his,Lloyd Banks                         hip hop           4.18");
-    REQUIRE(Test.Playlist_sortieren(1, "Artist")=="Run This Town         JAY-Z,Rihanna,Kanye West                                  hip hop           4.28");
-    REQUIRE(Test.Playlist_sortieren(2, "Artist")=="Kampfgeist 4          Kontra K                                                  german hip hop    2.57");
+    REQUIRE(Test.Playlist_sortieren(0, "Artist")=="\"You Don't Know\"        \"Eminem,50 Cent,Ca$his,Lloyd Banks\"                         \"hip hop\"           4.18");
+    REQUIRE(Test.Playlist_sortieren(1, "Artist")=="\"Run This Town\"         \"JAY-Z,Rihanna,Kanye West\"                                  \"hip hop\"           4.28");
+    REQUIRE(Test.Playlist_sortieren(2, "Artist")=="\"Kampfgeist 4\"          \"Kontra K\"                                                  \"german hip hop\"    2.57");
 
-    REQUIRE(Test.Playlist_sortieren(0, "Genre")=="Kampfgeist 4          Kontra K                                                  german hip hop    2.57");
-    REQUIRE(Test.Playlist_sortieren(1, "Genre")=="Run This Town         JAY-Z,Rihanna,Kanye West                                  hip hop           4.28");
-    REQUIRE(Test.Playlist_sortieren(2, "Genre")=="You Don't Know        Eminem,50 Cent,Ca$his,Lloyd Banks                         hip hop           4.18");
+    REQUIRE(Test.Playlist_sortieren(0, "Genre")=="\"Kampfgeist 4\"          \"Kontra K\"                                                  \"german hip hop\"    2.57");
+    REQUIRE(Test.Playlist_sortieren(1, "Genre")=="\"Run This Town\"         \"JAY-Z,Rihanna,Kanye West\"                                  \"hip hop\"           4.28");
+    REQUIRE(Test.Playlist_sortieren(2, "Genre")=="\"You Don't Know\"        \"Eminem,50 Cent,Ca$his,Lloyd Banks\"                         \"hip hop\"           4.18");
 
-    REQUIRE(Test.Playlist_sortieren(0, "Time")=="Kampfgeist 4          Kontra K                                                  german hip hop    2.57");
-    REQUIRE(Test.Playlist_sortieren(1, "Time")=="You Don't Know        Eminem,50 Cent,Ca$his,Lloyd Banks                         hip hop           4.18");
-    REQUIRE(Test.Playlist_sortieren(2, "Time")=="Run This Town         JAY-Z,Rihanna,Kanye West                                  hip hop           4.28");
+    REQUIRE(Test.Playlist_sortieren(0, "Time")=="\"Kampfgeist 4\"          \"Kontra K\"                                                  \"german hip hop\"    2.57");
+    REQUIRE(Test.Playlist_sortieren(1, "Time")=="\"You Don't Know\"        \"Eminem,50 Cent,Ca$his,Lloyd Banks\"                         \"hip hop\"           4.18");
+    REQUIRE(Test.Playlist_sortieren(2, "Time")=="\"Run This Town\"         \"JAY-Z,Rihanna,Kanye West\"                                  \"hip hop\"           4.28");
 }
 
 TEST_CASE("Suchwort in der Playlist Suchen: Test Anzahl der Zeilen"){
