@@ -597,7 +597,7 @@ class Playlist{
     Playlist Playlist;
 
     //Playlist benennen
-    Playlist.Name_Playlist("Günther");
+    Playlist.Name_Playlist("Playlist");
 
     //Textdatei mit Liedern hinzufügen
     Playlist.Song_Hinzufügen("Playlist_Spotify.txt");
