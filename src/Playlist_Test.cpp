@@ -54,6 +54,8 @@ class Playlist{
         return point_Playlist[a];
     }
 
+    /*
+
     int Play_Song_Songline(std::string Songname)
     {
         int Testline;
@@ -469,6 +471,8 @@ class Playlist{
 
         return Titel;
     }
+
+    */
 
 };
 
