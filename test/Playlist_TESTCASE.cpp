@@ -29,7 +29,6 @@ TEST_CASE("Ausgabe der Lieder"){
 
 }
 
-/*
 TEST_CASE("Abspielen eines Songs: Test herausfiltern von Songline, Titel, Artist, Gerne und Time"){
 
     Playlist Test;
@@ -108,4 +107,3 @@ TEST_CASE("Anzeige des nächsten Lieds"){
 
     REQUIRE(Test.Next_Song(0)=="Kampfgeist 4");
 }
-*/
