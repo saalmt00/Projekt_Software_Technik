@@ -28,7 +28,8 @@ class Playlist{
         printf("\n");
         printf("             Track Name              Artist Name                                                 Genres              Time\n\n");
 
-        for(int i=0; i<point_Count; i++){
+        for(int i=0; i<point_Count; i++)
+        {
             if(i<9)
             {
                 printf("Lied Nr. %d:  ", i+1);
@@ -60,17 +61,17 @@ class Playlist{
         std::ifstream input(Song);    
         int i = point_Count;
  
-        if(input.is_open()){  
-
-            while(std::getline(input, point_Playlist[i])){
-
+        if(input.is_open())
+        {  
+            while(std::getline(input, point_Playlist[i]))
+            {
                 i++;
                 point_Count = i;
             }
-
             input.close();
         }
-        else{
+        else
+        {
             printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             system("clear");
             std::cout << "Es konnte leider kein Song mit dem Namen '" << Song << "' hinzugefügt werden" << std::endl;
@@ -84,8 +85,8 @@ class Playlist{
     {
         system("clear");
         
-        for(int i = 0; i<point_Count; i++){
-
+        for(int i = 0; i<point_Count; i++)
+        {
             std::string Titel;
             std::string Artist;
             std::string Genre;
@@ -155,9 +156,11 @@ class Playlist{
                     system("clear");                   
                 }
             }
-            else{
+            else
+            {
                 printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-                std::cout << "Es konnten leider keine Songs mit dem Namen '" << Songname << "' gefunden werden" << std::endl;                
+                std::cout << "Es konnten leider keine Songs mit dem Namen '" << Songname << "' gefunden werden" << std::endl; 
+                printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");               
             }
         }
     }
@@ -228,7 +231,7 @@ class Playlist{
 
                 Next_Song(i);
 
-                //system("sleep 1");
+                system("sleep 1");
                 system("clear");                    
             }
         }
@@ -260,7 +263,8 @@ class Playlist{
                 o++;
             }                        
         }
-        if(o == 0){
+        if(o == 0)
+        {
             printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             system("clear");
             std::cout << "Es konnte leider kein Song mit dem Namen '" << Songname << "' gefunden und entfernt werden" << std::endl;
@@ -270,8 +274,8 @@ class Playlist{
         Playlist_auflisten();
     } 
   
-    void Playlist_sortieren(std::string Sortieren){
-
+    void Playlist_sortieren(std::string Sortieren)
+    {
         std::string temp_Playlist;
         std::string Titel_i;
         std::string Titel_b;
@@ -447,8 +451,8 @@ class Playlist{
     }  
 
 
-    void Suche(std::string Suchwort){
-
+    void Suche(std::string Suchwort)
+    {
         std::string Temp_Playlist[N];
         int o=0;
 
@@ -462,12 +466,17 @@ class Playlist{
                 o++;
             }
         }
-        if(o == 0){
+        if(o == 0)
+        {
             printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            system("clear");
             std::cout << "Es konnten leider keine Songs mit dem Suchwort '" << Suchwort << "' gefunden werden" << std::endl;
-        }
-        else{
+            system("sleep 10");
 
+            Playlist_auflisten();
+        }
+        else
+        {
             printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             std::cout << Name << std::endl;
             printf("\n");
@@ -493,8 +502,8 @@ class Playlist{
         }
     }
     
-    void Next_Song(int i){
-        
+    void Next_Song(int i)
+    {  
         int Next_Songline = i+1;
         std::string Titel;
         std::string Artist;
@@ -521,7 +530,8 @@ class Playlist{
         std::cout << "Next Song: " << Titel << ", from the Artist: " << Artist << std::endl;
     }
 
-    void Start_Playlist_Shuffel(int count_Songs){
+    void Start_Playlist_Shuffel(int count_Songs)
+    {
         std::string Titel;
         std::string Artist;
         std::string Genre;
@@ -584,44 +594,45 @@ class Playlist{
                     printf("    %d.%0.f/%0.2f\n",time_min,time_just_sec,Time);
                 }
 
-                //system("sleep 1");
+                system("sleep 1");
                 system("clear");                    
             }
         }
     }
 
 };
-    int main()
+    
+int main()
 {
 
     Playlist Playlist;
 
     //Playlist benennen
-    Playlist.Name_Playlist("Playlist");
+    Playlist.Name_Playlist("Name");
 
     //Textdatei mit Liedern hinzufügen
     Playlist.Song_Hinzufügen("Playlist_Spotify.txt");
 
     //Textdatei mit einzelnem Lied hinzufügen
-    Playlist.Song_Hinzufügen("HOV.txt");
+    //Playlist.Song_Hinzufügen("Songfile.txt");
 
     //Songtitel aus der Playlist entfernen
-    Playlist.Remove_Song("HOV");
+    ///Playlist.Remove_Song("Songtitel");
 
     //Playlist sortieren nach: Titel, Artist, Genre oder Time
-    //Playlist.Playlist_sortieren("Time");
+    //Playlist.Playlist_sortieren("Titel/Artist/Genre/Time");
 
     //Playlist nach Suchwort durchsuchen
-    //Playlist.Suche("Eminem");
+    //Playlist.Suche("Suchwort");
 
     //Ausgewähltes Lied aus der Playlist abspielen
-    //Playlist.Play_Song("Killer");
+    //Playlist.Play_Song("Songname");
 
     //Playlist starten
     //Playlist.Start_Playlist();
 
-    //Playlist geshuffelt starten
-    //Playlist.Start_Playlist_Shuffel(50);
+    //Playlist geshuffelt starten Start_Playlist_Shuffel(Anzahl der Lieder wo abgespielt werden sollen)
+    //Playlist.Start_Playlist_Shuffel(Anzahl in int);
 
     return 0;
 }   
