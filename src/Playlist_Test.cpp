@@ -54,8 +54,6 @@ class Playlist{
         return point_Playlist[a];
     }
 
-    /*
-
     int Play_Song_Songline(std::string Songname)
     {
         int Testline;
@@ -242,8 +240,8 @@ class Playlist{
         }
     }
 
-    std::string Playlist_sortieren(int x, std::string Sortieren){
-
+    std::string Playlist_sortieren(int x, std::string Sortieren)
+    {
         std::string temp;
         std::string temp_Playlist;
         std::string Titel_i;
@@ -315,8 +313,7 @@ class Playlist{
                     }
    
                     std::stringstream stream_line_b(point_Playlist[b]);
-                    
-                    
+                          
                     for(int z=0; z<6; z++)
                     {
                         std::getline(stream_line_b, Trenner ,'"');
@@ -326,8 +323,7 @@ class Playlist{
                             Artist_b = Trenner;
                         }
                     }
-
-                                
+              
                     if(Artist_b < Artist_i)
                     {
                         temp_Playlist = point_Playlist[i];
@@ -355,12 +351,8 @@ class Playlist{
                             Genre_i = Trenner;
                         }
                     }
-
-                    
-                    
                     std::stringstream stream_line_b(point_Playlist[b]);
-                    
-                    
+                                
                     for(int z=0; z<6; z++)
                     {
                         std::getline(stream_line_b, Trenner ,'"');
@@ -381,13 +373,12 @@ class Playlist{
             }
         }
 
-        if(Sortieren == "Time"){
-
+        if(Sortieren == "Time")
+        {
             for(int i=0; i<point_Count; i++)
             {                       
                 for(int b=i+1; b<point_Count; b++)
                 {
-
                     std::stringstream stream_line(point_Playlist[i]);
 
                     for(int o=0; o<6; o++)
@@ -451,7 +442,6 @@ class Playlist{
         std::string Titel;
         std::string Artist;
         std::string Trenner;
-
         std::stringstream stream_line(point_Playlist[Next_Songline]);
 
         for(int o = 0; o<6; o++)
@@ -468,11 +458,8 @@ class Playlist{
                 Artist = Trenner;
             }
         }
-
         return Titel;
     }
-
-    */
 
 };
 
