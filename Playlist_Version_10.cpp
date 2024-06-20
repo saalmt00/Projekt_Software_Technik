@@ -52,17 +52,17 @@ class Playlist{
         std::cout << point_Name << std::endl;
         printf("\n\n\n\n\n");
 
-        Playlist_auflisten();       
+        Playlist_auflisten();
     }
 
     void Song_Hinzufügen(std::string Song)
     {
 
-        std::ifstream input(Song);    
+        std::ifstream input(Song);
         int i = point_Count;
- 
+
         if(input.is_open())
-        {  
+        {
             while(std::getline(input, point_Playlist[i]))
             {
                 i++;
@@ -84,7 +84,7 @@ class Playlist{
     void Play_Song(std::string Songname)
     {
         system("clear");
-        
+
         for(int i = 0; i<point_Count; i++)
         {
             std::string Titel;
@@ -92,7 +92,7 @@ class Playlist{
             std::string Genre;
             double Time;
             std::string Trenner;
-    //Code von ChatGBT 
+    //Code von ChatGBT
     //{
             size_t pos = point_Playlist[i].find(Songname);
 
@@ -114,27 +114,27 @@ class Playlist{
                     {
                         Artist = Trenner;
                     }
-                        
+
                     if(o==5)
                     {
                         Genre = Trenner;
-                    }                    
+                    }
                 }
-                
+
                 stream_line >> Time;
                 int time_min = static_cast<int>(Time);
                 double time_just_sec = Time-time_min;
                 time_just_sec = time_just_sec*100;
-            
+
                 while(true)
-                {                   
+                {
                     time_just_sec = time_just_sec/100-0.01;
                     if(time_just_sec<0)
                     {
                         time_min = time_min-1;
                         time_just_sec = 0.59;
 
-                    } 
+                    }
                     if(time_min<0)
                     {
                         break;
@@ -142,7 +142,7 @@ class Playlist{
 
                     time_just_sec = time_just_sec*100;
                     std::cout << "Now is playing: " << Titel << ", from the Artist: " << Artist;
-                    
+
                     if(time_just_sec<9)
                     {
                         printf("    %d.0%0.f/%0.2f\n",time_min,time_just_sec,Time);
@@ -151,16 +151,16 @@ class Playlist{
                     {
                         printf("    %d.%0.f/%0.2f\n",time_min,time_just_sec,Time);
                     }
-                    
+
                     system("sleep 1");
-                    system("clear");                   
+                    system("clear");
                 }
             }
             else
             {
                 printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-                std::cout << "Es konnten leider keine Songs mit dem Namen '" << Songname << "' gefunden werden" << std::endl; 
-                printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");               
+                std::cout << "Es konnten leider keine Songs mit dem Namen '" << Songname << "' gefunden werden" << std::endl;
+                printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             }
         }
     }
@@ -191,27 +191,27 @@ class Playlist{
                 {
                     Artist = Trenner;
                 }
-                        
+
                 if(o==5)
                 {
                     Genre = Trenner;
-                }                    
+                }
             }
-                
+
             stream_line >> Time;
             int time_min = static_cast<int>(Time);
             double time_just_sec = Time-time_min;
             time_just_sec = time_just_sec*100;
 
             while(true)
-            {                   
+            {
                 time_just_sec = time_just_sec/100-0.01;
                 if(time_just_sec<0)
                 {
                     time_min = time_min-1;
                     time_just_sec = 0.59;
 
-                } 
+                }
                 if(time_min<0)
                 {
                     break;
@@ -219,7 +219,7 @@ class Playlist{
 
                 time_just_sec = time_just_sec*100;
                 std::cout << "Now is playing: " << Titel << ", from the Artist: " << Artist;
-                    
+
                 if(time_just_sec<10)
                 {
                     printf("    %d.0%0.f/%0.2f\n",time_min,time_just_sec,Time);
@@ -232,7 +232,7 @@ class Playlist{
                 Next_Song(i);
 
                 system("sleep 1");
-                system("clear");                    
+                system("clear");
             }
         }
     }
@@ -248,7 +248,7 @@ class Playlist{
             if(pos != std::string::npos)
             {
                 point_Playlist[i].clear();
-                
+
                 while(i<point_Count)
                 {
                     point_Playlist[i] = point_Playlist[i+1];
@@ -261,7 +261,7 @@ class Playlist{
                     }
                 }
                 o++;
-            }                        
+            }
         }
         if(o == 0)
         {
@@ -269,11 +269,11 @@ class Playlist{
             system("clear");
             std::cout << "Es konnte leider kein Song mit dem Namen '" << Songname << "' gefunden und entfernt werden" << std::endl;
             system("sleep 10");
-            
-        }       
+
+        }
         Playlist_auflisten();
-    } 
-  
+    }
+
     void Playlist_sortieren(std::string Sortieren)
     {
         std::string temp_Playlist;
@@ -290,13 +290,13 @@ class Playlist{
         if(Sortieren == "Titel")
         {
             for(int i=0; i<point_Count; i++)
-            {                       
+            {
                 for(int b=i+1; b<point_Count; b++)
                 {
                     std::stringstream stream_line(point_Playlist[i]);
 
                     for(int o=0; o<6; o++)
-                    {        
+                    {
                         std::getline(stream_line, Trenner, '"');
 
                         if(o==1)
@@ -304,9 +304,9 @@ class Playlist{
                             Titel_i = Trenner;
                         }
                     }
-                   
+
                     std::stringstream stream_line_b(point_Playlist[b]);
-    
+
                     for(int z=0; z<6; z++)
                     {
                         std::getline(stream_line_b, Trenner ,'"');
@@ -316,27 +316,27 @@ class Playlist{
                             Titel_b = Trenner;
                         }
                     }
-                                
+
                     if(Titel_b < Titel_i)
-                    {                                                   
+                    {
                         temp_Playlist = point_Playlist[i];
                         point_Playlist[i] = point_Playlist[b];
                         point_Playlist[b] = temp_Playlist;
-                    }                                                            
-                }                        
+                    }
+                }
             }
         }
 
         if(Sortieren == "Artist")
         {
             for(int i=0; i<point_Count; i++)
-            {                       
+            {
                 for(int b=i+1; b<point_Count; b++)
                 {
                     std::stringstream stream_line(point_Playlist[i]);
 
                     for(int o=0; o<6; o++)
-                    {        
+                    {
                         std::getline(stream_line, Trenner, '"');
 
                         if(o==3)
@@ -344,41 +344,41 @@ class Playlist{
                             Artist_i = Trenner;
                         }
                     }
-   
+
                     std::stringstream stream_line_b(point_Playlist[b]);
-                    
-                    
+
+
                     for(int z=0; z<6; z++)
                     {
                         std::getline(stream_line_b, Trenner ,'"');
 
                         if(z==3)
-                        {    
+                        {
                             Artist_b = Trenner;
                         }
                     }
 
-                                
+
                     if(Artist_b < Artist_i)
                     {
                         temp_Playlist = point_Playlist[i];
                         point_Playlist[i] = point_Playlist[b];
                         point_Playlist[b] = temp_Playlist;
-                    }                                                            
-                }                        
+                    }
+                }
             }
         }
 
         if(Sortieren == "Genre")
-        {            
+        {
             for(int i=0; i<point_Count; i++)
-            {                       
+            {
                 for(int b=i+1; b<point_Count; b++)
                 {
                     std::stringstream stream_line(point_Playlist[i]);
 
                     for(int o=0; o<6; o++)
-                    {        
+                    {
                         std::getline(stream_line, Trenner, '"');
 
                         if(o==5)
@@ -387,49 +387,49 @@ class Playlist{
                         }
                     }
 
-                    
-                    
+
+
                     std::stringstream stream_line_b(point_Playlist[b]);
-                    
-                    
+
+
                     for(int z=0; z<6; z++)
                     {
                         std::getline(stream_line_b, Trenner ,'"');
 
                         if(z==5)
-                        {                            
+                        {
                             Genre_b = Trenner;
                         }
                     }
-                                
+
                     if(Genre_b < Genre_i)
-                    {                                                   
+                    {
                         temp_Playlist = point_Playlist[i];
                         point_Playlist[i] = point_Playlist[b];
                         point_Playlist[b] = temp_Playlist;
-                    }                                                            
-                }                        
+                    }
+                }
             }
         }
 
         if(Sortieren == "Time")
         {
             for(int i=0; i<point_Count; i++)
-            {                       
+            {
                 for(int b=i+1; b<point_Count; b++)
                 {
 
                     std::stringstream stream_line(point_Playlist[i]);
 
                     for(int o=0; o<6; o++)
-                    {        
+                    {
                         std::getline(stream_line, Trenner, '"');
                     }
 
                     stream_line >> Time_i;
 
                     std::stringstream stream_line_b(point_Playlist[b]);
-                                        
+
                     for(int z=0; z<6; z++)
                     {
                         std::getline(stream_line_b, Trenner ,'"');
@@ -438,17 +438,17 @@ class Playlist{
                     stream_line_b >> Time_b;
 
                     if(Time_b < Time_i)
-                    {                                                    
+                    {
                         temp_Playlist = point_Playlist[i];
                         point_Playlist[i] = point_Playlist[b];
                         point_Playlist[b] = temp_Playlist;
-                    }                                                            
-                }                                            
+                    }
+                }
             }
         }
 
         Playlist_auflisten();
-    }  
+    }
 
 
     void Suche(std::string Suchwort)
@@ -484,7 +484,7 @@ class Playlist{
 
             for(int u=0; u<o; u++)
             {
-    
+
                 if(o<9)
                 {
                     printf("Lied Nr. %d:  ", u+1);
@@ -501,9 +501,9 @@ class Playlist{
             printf("\n\n");
         }
     }
-    
+
     void Next_Song(int i)
-    {  
+    {
         int Next_Songline = i+1;
         std::string Titel;
         std::string Artist;
@@ -556,27 +556,27 @@ class Playlist{
                 {
                     Artist = Trenner;
                 }
-                        
+
                 if(o==5)
                 {
                     Genre = Trenner;
-                }                    
+                }
             }
-                
+
             stream_line >> Time;
             int time_min = static_cast<int>(Time);
             double time_just_sec = Time-time_min;
             time_just_sec = time_just_sec*100;
 
             while(true)
-            {                   
+            {
                 time_just_sec = time_just_sec/100-0.01;
                 if(time_just_sec<0)
                 {
                     time_min = time_min-1;
                     time_just_sec = 0.59;
 
-                } 
+                }
                 if(time_min<0)
                 {
                     break;
@@ -584,7 +584,7 @@ class Playlist{
 
                 time_just_sec = time_just_sec*100;
                 std::cout << "Now is playing: " << Titel << ", from the Artist: " << Artist;
-                    
+
                 if(time_just_sec<10)
                 {
                     printf("    %d.0%0.f/%0.2f\n",time_min,time_just_sec,Time);
@@ -595,26 +595,26 @@ class Playlist{
                 }
 
                 system("sleep 1");
-                system("clear");                    
+                system("clear");
             }
         }
     }
 
 };
-    
+
 int main()
 {
 
     Playlist Playlist;
 
     //Playlist benennen
-    Playlist.Name_Playlist("Name");
+    //Playlist.Name_Playlist("Name der Playlist");
 
     //Textdatei mit Liedern hinzufügen
-    Playlist.Song_Hinzufügen("Playlist_Spotify.txt");
+    //Playlist.Song_Hinzufügen("Name der txt-Datei");
 
     //Textdatei mit einzelnem Lied hinzufügen
-    //Playlist.Song_Hinzufügen("Songfile.txt");
+    //Playlist.Song_Hinzufügen("Name der txt-Datei");
 
     //Songtitel aus der Playlist entfernen
     ///Playlist.Remove_Song("Songtitel");
@@ -635,4 +635,4 @@ int main()
     //Playlist.Start_Playlist_Shuffel(Anzahl in int);
 
     return 0;
-}   
+}
